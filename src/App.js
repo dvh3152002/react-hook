@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
 import Todo from './views/Todo';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 const App=()=> {
   let [address,setAddress]=useState('');
@@ -11,6 +11,14 @@ const App=()=> {
     {id:"2",title:"Watching TV"},
     {id:"3",title:"Reading book"}
   ]);
+
+  useEffect(()=>{
+    console.log("user effect");
+  },[]);//=componentDidMount
+
+  useEffect(()=>{
+    console.log("user effect");
+  },[address]);//=componentDidUpdate
 
   const handleOnClick=()=>{
     if(!address){
