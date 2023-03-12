@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
 import Todo from './views/Todo';
+import Covid from './views/Covid';
 import { useState,useEffect } from 'react';
 
 const App=()=> {
@@ -11,14 +12,6 @@ const App=()=> {
     {id:"2",title:"Watching TV"},
     {id:"3",title:"Reading book"}
   ]);
-
-  useEffect(()=>{
-    console.log("user effect");
-  },[]);//=componentDidMount
-
-  useEffect(()=>{
-    console.log("user effect");
-  },[address]);//=componentDidUpdate
 
   const handleOnClick=()=>{
     if(!address){
@@ -45,12 +38,13 @@ const App=()=> {
       <Nav/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Todo
+        <Covid/>
+        {/* <Todo
           todos={todos}
           handleDeleteTodo={handleDeleteTodo}
         />
         <input type='text' value={address} onChange={(event)=>handleOnChange(event)}/>
-        <button onClick={handleOnClick}>click</button>
+        <button onClick={handleOnClick}>click</button> */}
       </header>
     </div>
   );
