@@ -1,32 +1,9 @@
 import { useEffect,useState } from "react";
-import axios from "axios";
-import moment from "moment";
+import useFetch from "../customize/fetch";
 
 const Covid=()=>{
-    const [dataCovid,setDataCovid]=useState([]);
-    const [isLoading,setIsLoading]=useState(true);
-    const [isError,setIsError]=useState(false);
-
-    useEffect(()=>{
-        setTimeout(async()=>{
-            try {
-                const res=await axios.get('https://api.covid19api.com/country/vietnam?from=2022-10-01T00:00:00Z&to=2022-11-01T00:00:00Z')
-                let data=res&&res.data?res.data:[];
-                if(res&&res.data){
-                    data.map(item=>{
-                        item.Date=moment(item.Date).format('DD/MM/YYYY');
-                        return item;
-                    })
-                }
-                setDataCovid(data);
-                setIsLoading(false);
-                setIsError(false);
-            } catch (error) {
-                setIsError(true);
-                setIsLoading(false);
-            }
-        },2000);
-    },[]);
+    const {data:dataCovid,isLoading,isError}=useFetch('https://api.covid19api.com/country/vietnam?from=2022-10-01T00:00:00Z&to=2022-11-01T00:00:00Z');
+    
 
     return(
         <>
