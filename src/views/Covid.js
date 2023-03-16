@@ -1,9 +1,17 @@
+import moment from "moment";
 import { useEffect,useState } from "react";
 import useFetch from "../customize/fetch";
 
 const Covid=()=>{
-    const {data:dataCovid,isLoading,isError}=useFetch('https://api.covid19api.com/country/vietnam?from=2022-10-01T00:00:00Z&to=2022-11-01T00:00:00Z');
-    
+    let today = moment().toDate();  // This will return a copy of the Date that the moment uses
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    today.setMilliseconds(0);
+    // let today=new Date(new Date().setHours(0,0,0,0));
+    const prevDate=moment().subtract(31,'days');
+
+    const {data:dataCovid,isLoading,isError}=useFetch(`https://api.covid19api.com/country/vietnam?from=${prevDate.toISOString()}&to=${today.toISOString()}`);
 
     return(
         <>

@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './views/Nav';
 import Todo from './views/Todo';
 import Covid from './views/Covid';
+import {CountDown,NewCountDown} from './views/Countdown';
 import { useState,useEffect } from 'react';
 
 const App=()=> {
@@ -33,11 +34,24 @@ const App=()=> {
     setTodos(currentTodos);
   }
 
+  const onTimesup=()=>{
+    alert('times up')
+  }
+
   return (
     <div className="App">
       <Nav/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <CountDown 
+          onTimesup={onTimesup}
+        />
+        <span>----------------------</span>
+        
+        <NewCountDown
+          onTimesup={onTimesup}
+        />
+
         <Covid/>
         {/* <Todo
           todos={todos}
