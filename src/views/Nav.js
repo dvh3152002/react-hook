@@ -3,9 +3,9 @@ import './Nav.scss';
 const Nav=()=>{
     return(
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#">Dropdown</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/todo">Todos</a></li>
+          <li><a href="/timer">Timer App</a></li>
         </ul>
     );
 }
