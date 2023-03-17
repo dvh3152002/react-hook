@@ -3,10 +3,8 @@ import { useEffect,useState } from "react";
 import useFetch from "../customize/fetch";
 
 const Covid=()=>{
-    const today = moment().startOf('day').toISOString(true);  // This will return a copy of the Date that the moment uses
+    const today = moment().startOf('day').toISOString(true);
     const prevDate=moment().startOf('day').subtract(31,'days').toISOString(true);
-    console.log('today',today);
-    console.log('prev',prevDate)
 
     const {data:dataCovid,isLoading,isError}=useFetch(`https://api.covid19api.com/country/vietnam?from=${prevDate}&to=${today}`);
 

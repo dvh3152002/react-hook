@@ -12,15 +12,21 @@ class CountDown extends React.Component{
         // },1000)
 
         //Cu sau 1 interval se render lai
-        if (this.myInterval) {
-            clearInterval(this.myInterval);
-        }
+        // if (this.myInterval) {
+        //     clearInterval(this.myInterval);
+        // }
         this.myInterval=setInterval(()=>{
             this.setState({
                 count:this.state.count-1
             })
             
         },1000);
+    }
+
+    componentWillUnmount(){
+        if (this.myInterval) {
+            clearInterval(this.myInterval);
+        }
     }
 
     componentDidUpdate(prevProps,prevState){
