@@ -6,7 +6,7 @@ const Covid=()=>{
     const today = moment().startOf('day').toISOString(true);
     const prevDate=moment().startOf('day').subtract(31,'days').toISOString(true);
 
-    const {data:dataCovid,isLoading,isError}=useFetch(`https://api.covid19api.com/country/vietnam?from=${prevDate}&to=${today}`);
+    const {data:dataCovid,isLoading,isError}=useFetch(`https://api.covid19api.com/country/vietnam?from=${prevDate}&to=${today}`,true);
 
     return(
         <>
