@@ -1,6 +1,6 @@
 import useFetch from "../customize/fetch";
 import './Blog.scss';
-import { Link } from "react-router-dom";
+import { Link,useNavigation } from "react-router-dom";
 
 const Blog=()=>{
     const {data:dataBlogs,isLoading,isError}=useFetch(`https://jsonplaceholder.typicode.com/posts`,false);
@@ -8,7 +8,6 @@ const Blog=()=>{
     let newData=[]
     if(dataBlogs && dataBlogs.length>0){
         newData=dataBlogs.slice(0,9);
-        console.log('check new',newData)
     }
     return(
         <>

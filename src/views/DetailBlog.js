@@ -1,11 +1,18 @@
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 
 const DetailBlog=()=>{
     let {id}=useParams();
+    let navigate = useNavigate();
+
+    const handleBackDetailBlog=()=>{
+        navigate("/blog");
+    }
+
     return(
-        <div>
-            detail {id}
-        </div>
+        <>
+            <div><span onClick={()=>handleBackDetailBlog()}>&lt;-- Back</span></div>
+            <div>detail {id}</div>
+        </>
     )
 }
 
