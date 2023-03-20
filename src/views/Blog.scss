@@ -31,3 +31,27 @@
         }
     }
 }
+
+.btn-add-new{
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.add-new-container{
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 20px;
+    min-width: 500px !important;
+
+    .add-new-text{
+        margin: 10px 0;
+    }
+
+    .input-data{
+        display: flex;
+        flex-direction: column;
+        padding: 5px 0;
+        margin: 5px 0;
+        text-align: left;
+    }
+}

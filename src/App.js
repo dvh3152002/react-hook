@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import Blog from './views/Blog';
 import DetailBlog from './views/DetailBlog';
+import AddNewBlog from './views/AddNewBlog';
 
 const App=()=> {
   const onTimesup=()=>{
@@ -43,6 +44,7 @@ const App=()=> {
             }/>
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<DetailBlog />} />
+            <Route path="/add-new-blog" element={<AddNewBlog />} />
           </Routes>
         </header>
       </div>
